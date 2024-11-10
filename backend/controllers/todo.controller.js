@@ -1,7 +1,8 @@
 const AWS = require('aws-sdk');
 const uuid = require('uuid');
 
-// Initialize DynamoDB DocumentClient
+// Initialize DynamoDB DocumentClient and region
+AWS.config.update({ region: process.env.AWS_REGION || 'us-west-2' });
 const docClient = new AWS.DynamoDB.DocumentClient();
 
 const tableName = process.env.AWS_TABLE_NAME || "todo";  // Use a default name if env variable is not set
