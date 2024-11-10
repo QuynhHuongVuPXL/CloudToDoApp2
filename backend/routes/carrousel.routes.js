@@ -3,7 +3,8 @@ const carrouselRouter = express.Router();
 const AWS = require('aws-sdk');
 
 // Set region explicitly
-AWS.config.update({ region: process.env.AWS_REGION || 'us-west-2' });
+const REGION = process.env.AWS_REGION || 'us-west-2';
+AWS.config.update({ region: REGION });
 const s3 = new AWS.S3();
 const BUCKET_NAME = process.env.S3_BUCKET;
 
