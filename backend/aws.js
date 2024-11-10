@@ -7,6 +7,10 @@ AWS.config.update({secretAccessKey: process.env.AWS_ACCESS_KEY});
 AWS.config.update({region: process.env.AWS_REGION});
 */
 
+AWS.config.update({
+  region: process.env.AWS_REGION || 'us-west-2'
+});
+
 const docClient = new AWS.DynamoDB.DocumentClient();
 
 module.exports = docClient;
